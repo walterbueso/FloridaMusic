@@ -1,0 +1,323 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+
+    var mainEntry = "";
+    var aside = "";
+    if (Model.Content.HasValue("awards") || Model.Content.HasValue("quotes") || Model.Content.HasValue("customSidebarTitle"))
+    {
+        mainEntry = "col-md-9";
+        aside = "col-md-3";
+    }
+    else
+    {
+        mainEntry = "col-md-9 col-md-offset-1 ";
+        aside = "hidden";
+    }
+
+}
+@Html.Partial("pageHeader")
+<div class="mt60 hidden-sm hidden-xs"></div><!-- space -->
+<div class="container">
+    <div class="row">
+        <div class="@mainEntry">
+            <article class="entry single">
+                <div class="entry-media">
+                    <figure>
+                        <img src="@Model.Content.GetCropUrl("artistImage", "Main")" alt="@Umbraco.Field("artistName")">
+                    </figure>
+                </div><!-- End .entry-media -->
+                <span class="entry-date hidden-xs"><i class="fa fa-music"></i><span>@Umbraco.Field("mainGenre")</span></span>
+                <h2 class="title-underblock custom">@Umbraco.If(CurrentPage.HasValue("title"), CurrentPage.title, CurrentPage.artistName)</h2>
+                  
+                <div class="entry-content">
+                    @Umbraco.Field("bodyText")
+                </div><!-- End .entry-content -->
+            </article>
+        </div><!-- End .col-md-9 -->
+        <div class="mb50 clearfix visible-sm visible-xs"></div><!-- space -->
+        <aside class="@aside sidebar" role="complementary">
+            @{
+                if (CurrentPage.awards.Length > 0)
+                {
+                    <div class="widget">
+                        <h3 class="title-underblock custom">Top Awards</h3>
+                        <ul class="links">
+                            @foreach (var award in CurrentPage.awards)
+                            {
+                                //Making sure no empty strings are rendered. Known bug in umbraco
+                                if (!String.IsNullOrWhiteSpace(award))
+                                {
+                                    <li><a><i class="fa fa-star-o"></i>@award</a></li>
+                                }
+
+                            }
+                        </ul>
+                    </div><!-- End .widget -->
+                }
+
+                if (CurrentPage.quotes.Length > 0)
+                {
+                    <div class="widget">
+                        <h3 class="title-underblock custom">Famous Quotes</h3>
+                        <ul class="latest-posts-list">
+                            @foreach (var quote in CurrentPage.quotes)
+                            {
+                                //Making sure no empty strings are rendered. Known bug in umbraco
+                                if (!String.IsNullOrWhiteSpace(quote))
+                                {
+                                    <li class="clearfix">
+                                        <h5><a>"@quote"</a></h5>
+                                        <cite>@CurrentPage.artistName</cite>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div><!-- End .widget -->
+                }
+
+                if (CurrentPage.HasValue("customSidebarTitle") && CurrentPage.customSidebarItems.Length > 0)
+                {
+                    <div class="widget">
+                        <h3 class="title-underblock custom">@Umbraco.Field("customSidebarTitle")</h3>
+                        <ul class="links">
+                            @foreach (var custom in CurrentPage.customSidebarItems)
+                            {
+                                if (!String.IsNullOrWhiteSpace(custom))
+                                {
+                                    <li><a><i class="fa fa-caret-right"></i>@custom</a></li>
+                                }
+
+                            }
+                        </ul>
+                    </div><!-- End .widget -->
+                }
+            }
+
+        </aside><!-- End .col-md-3 -->
+    </div><!-- End .row -->
+</div><!-- End .container -->
+@{ var selection = CurrentPage.Children.Where("Visible"); }
+@if (selection.Any())
+{
+    <section class="bg-lightgray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-block text-center mb60 pt50">
+                        <h2 class="title-underblock custom">@Umbraco.Field("artistName")</h2>
+                        <p>Click on the tabs below to learn more about @Umbraco.Field("artistName").</p>
+                    </div>
+                    <div role="tabpanel">
+
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            @foreach (var item in selection)
+                            {
+                                <li role="presentation" class="@item.IsFirst("active", "")">
+                                    <a href="#@item.UrlName" aria-controls="@item.UrlName" role="tab" data-toggle="tab"><i class="fa @Umbraco.If(item.DocumentTypeAlias == "timeline", "fa-calendar", "")  @Umbraco.If(item.DocumentTypeAlias == "artistLocation", "fa-map-marker", "") @Umbraco.If(item.DocumentTypeAlias == "gallery", "fa-picture-o", "")"></i>@item.Name</a>
+                                </li>
+                            }
+                        </ul>
+
+                        <!-- Tab Panes -->
+                        <div class="tab-content">
+                            @foreach (var item in selection)
+                            {
+                                if (item.DocumentTypeAlias == "timeline")
+                                {
+                                    <div role="tabpanel" class="tab-pane @item.IsFirst("active", "")" id="@item.UrlName">
+                                        <div class="row no-margin">
+                                            <div class="pt40"></div>
+                                            <div class="about-timeline">
+                                                @item.GetProperty("events")
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (item.DocumentTypeAlias == "poiRepository")
+                                {
+                                    <div role="tabpanel" class="tab-pane @item.IsFirst("active", "")" id="@item.UrlName">
+                                        <div class="pt40"></div>
+                                        <h2 class="title-underblock custom mb30">Point of Interest</h2>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="panel-group" id="accordion4" role="tablist" aria-multiselectable="false">
+                                                    @foreach (var places in item.Children)
+                                                    {
+                                                        <div class="panel panel-custom">
+                                                            <div class="panel-heading" role="tab" id="@places.UrlName-7">
+                                                                <h4 class="panel-title">
+                                                                    <a data-toggle="collapse" href="#@places.UrlName" aria-expanded="@places.IsFirst("true", "false")" data-parent="#accordion4" aria-controls="@places.UrlName">
+                                                                        @places.nameOfLocation @places.IsFirst(" - Start Here!")
+                                                                        <span class="panel-icon"></span>
+                                                                    </a>
+                                                                </h4>
+                                                            </div><!-- End .panel-heading -->
+
+                                                            <div id="@places.UrlName" class="panel-collapse collapse @places.IsFirst("in", "") " role="tabpanel" aria-labelledby="@places.UrlName-7">
+                                                                <div class="panel-body">
+                                                                    @places.locationDescription
+
+                                                                </div><!-- End .panel-body -->
+                                                            </div><!-- End .panel-collapse -->
+                                                        </div><!-- End .panel -->
+                                                    }
+                                                </div>
+                                            </div>
+
+                                            <div class="mt60 visible-xs"></div>
+
+                                            <div class="col-md-6 hidden-xs">
+                                                <div id="map" class="map4"></div><!-- End #map -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @section Scripts
+                            {
+                                        <script src="~/js/jquery.magnific-popup.min.js"></script>
+                                        <script src="https://maps.googleapis.com/maps/api/js?"></script>
+                                        <script type="text/javascript">
+                                    (function () {
+                                        /* "use strict"; */
+
+                                        if (document.getElementById("map")) {
+
+                                            var locs = [
+                                                @foreach (var locs in item.Children)
+                                            {
+                                                <text>["@locs.UrlName" , "@locs.nameOfLocation" , @locs.GetPropertyValue("lat"), @locs.GetPropertyValue("long"), "@locs.address"]@locs.IsNotLast(",") </text>
+                                            }
+                                            ];
+
+                                            var locations = [];
+                                            var markers = [];
+                                            var infowindow = new google.maps.InfoWindow();
+
+                                            //create map infos for all our locations
+                                            for (var i = 0; i < locs.length; i++) {
+                                                //html markup, name, lat, long
+                                                var tempArray = ['<div class="map-info-box"><ul class="contact-info-list"><li><span><i class="fa fa-map-pin fa-fw"></i></span> ' + locs[i][1] + '</li><li><span><i class="fa fa-home fa-fw"></i></span> ' + locs[i][4] + '</li></ul></div>', locs[i][0], locs[i][2], locs[i][3]];
+                                                locations.push(tempArray);
+                                            }
+
+                                            //create map
+                                            var map = new google.maps.Map(document.getElementById('map'), {
+                                                zoom: 6,
+                                                center: new google.maps.LatLng(28.392155, -81.532215),
+                                                scrollwheel: false,
+                                                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                styles: [{ "featureType": "landscape", "stylers": [{ "saturation": -100 }, { "lightness": 65 }, { "visibility": "on" }] }, { "featureType": "poi", "stylers": [{ "saturation": -100 }, { "lightness": 51 }, { "visibility": "simplified" }] }, { "featureType": "road.highway", "stylers": [{ "saturation": -100 }, { "visibility": "simplified" }] }, { "featureType": "road.arterial", "stylers": [{ "saturation": -100 }, { "lightness": 30 }, { "visibility": "on" }] }, { "featureType": "road.local", "stylers": [{ "saturation": -100 }, { "lightness": 40 }, { "visibility": "on" }] }, { "featureType": "transit", "stylers": [{ "saturation": -100 }, { "visibility": "simplified" }] }, { "featureType": "administrative.province", "stylers": [{ "visibility": "off" }] }, { "featureType": "water", "elementType": "labels", "stylers": [{ "visibility": "on" }, { "lightness": -25 }, { "saturation": -100 }] }, { "featureType": "water", "elementType": "geometry", "stylers": [{ "hue": "#ffff00" }, { "lightness": -25 }, { "saturation": -97 }] }]
+                                            });
+
+                                            //loop througha nd initialize markers
+                                            for (var i = 0; i < locations.length; i++) {
+                                                //create marker
+                                                var marker = new google.maps.Marker({
+                                                    position: new google.maps.LatLng(locations[i][2], locations[i][3]),
+                                                    map: map,
+                                                    animation: google.maps.Animation.DROP,
+                                                    icon: '/images/pin.png',
+                                                });
+
+                                                //add marker to array
+                                                markers.push(marker);
+
+                                                //create infowindows and listeners for markers
+                                                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                                                    return function () {
+                                                        infowindow.setContent(locations[i][0]);
+                                                        infowindow.open(map, marker);
+                                                        //expand panel
+                                                        $('#' + locations[i][1]).collapse("show");
+                                                    }
+                                                })(marker, i));
+
+                                                //func to change the map marker
+                                                function bindClick(i) {
+                                                    return function () {
+                                                        infowindow.setContent(locations[i][0]);
+                                                        infowindow.open(map, markers[i]);
+                                                    };
+                                                }
+
+                                                //set collapse listener
+                                                $('#' + locations[i][1]).on('show.bs.collapse', bindClick(i));
+
+                                                //if this is the first location, set it to active
+                                                if (i == 0) {
+                                                    infowindow.setContent(locations[i][0]);
+                                                    infowindow.open(map, markers[i]);
+                                                }
+                                            }
+
+
+
+                                            //hack to get around a bootstrap bug
+                                            //without this after programtically showing/hiding a panel the accordian fails
+                                            $('#accordion4').on('show.bs.collapse', function () {
+                                                for (var i = 0; i < locations.length; i++) {
+                                                    $('#' + locations[i][1]).collapse("hide");
+                                                }
+                                            });
+                                        }
+
+                                    }());
+                                        </script>
+
+                                    }
+                                }
+                                else if (item.DocumentTypeAlias == "gallery")
+                                {
+                                    <div role="tabpanel" class="tab-pane @item.IsFirst("active", "")" id="@item.UrlName">
+                                        <div class="pt40"></div>
+                                        <h2 class="title-underblock custom mb30">@Umbraco.Field("artistName") Gallery</h2>
+                                        <div class="popup-gallery">
+
+                                            @{
+                                                var bannerList = item.galleryImage.ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                                                var bannerCollection = Umbraco.Media(bannerList);
+                                                foreach (var gal in bannerCollection.InGroupsOf(3))
+                                                {
+                                                    <div class="row">
+                                                        @foreach (var img in gal)
+                                                        {
+                                                            <div class="col-md-4 col-sm-6">
+                                                                <div class="portfolio-item portfolio-meta-slideup push">
+                                                                    <figure>
+                                                                        <a href="@img.GetCropUrl("galleryImage", "large")" class="zoom-item" title="@img.description"><img src="@img.GetCropUrl("galleryImage", "thumb")" class="img-responsive"></a>
+                                                                    </figure>
+
+                                                                    <div class="portfolio-meta custom">
+
+                                                                        <h3 class="portfolio-title"><a>@img.Name</a></h3>
+                                                                        <div class="portfolio-tags"><a>@img.subtitle</div>
+                                                                        <a class="portfolio-favourite ">
+                                                                            <i class="fa fa-link"></i>
+                                                                        </a>
+                                                                    </div><!-- End .portfolio-meta -->
+                                                                </div><!-- End .portfolio-item -->
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                }
+                                            }
+
+
+                                        </div>
+                                    </div>
+
+                                                    }
+                                                }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+                                                }
+@section styles {
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <style>.mt60{margin-top:60px!important}.mb50{margin-bottom:50px!important}.mb60{margin-bottom:60px!important}.pt50{padding-top:50px!important}.pt40{padding-top:40px!important}.mb30{margin-bottom:30px!important}</style>
+}

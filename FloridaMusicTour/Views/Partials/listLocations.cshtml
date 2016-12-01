@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{ var selection = CurrentPage.Children.Where("Visible"); }
+@if (selection.Any())
+{
+    <div class="over">
+        <div id="portfolio-item-container">
+            @foreach (var item in selection)
+            {
+
+                <div class="portfolio-item @item.typeOfLocation" id="@item.Id">
+
+                    <div class="team-member-container">
+                        <div class="team-member" id="to-do">
+                            <a href="@item.Url">
+                                <figure>
+                                    <img src="@Umbraco.If(item.HasValue("locationImage"), item.GetCropUrl("locationImage","Thumb"), "/img/default-location.jpg")" alt="@item.LocationName" class="img-responsive">
+                                </figure>
+
+                                <div class="member-meta">
+                                    <h3>@item.locationName</h3>
+                                    <p class="member-desc"><span>@item.typeOfLocation</span></p>
+                                    <p class="member-desc"><span>@item.address</span></p>
+                                    
+                                </div><!-- End .member-meta -->
+                            </a>
+                        </div><!-- End .team-member -->
+                    </div><!-- End .member-container -->
+
+                </div>
+
+            }
+        </div><!-- End #portfolio-item-container -->
+    </div>
+
+}

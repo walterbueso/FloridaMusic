@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "Master.cshtml";
+}
+@Html.Partial("pageHeader")
+<div class="mb65"></div><!-- space -->
+<div class="container">
+    <header class="title-block text-center mb60">
+        <h2 class="title-underblock custom">@Umbraco.Field("header")</h2>
+        <p>@Umbraco.Field("subHeader")</p>
+    </header>
+</div><!-- End .container -->
+<div class="container">
+    <ul id="portfolio-filter" class="text-center bordered">
+        <li class="active"><a href="#" data-filter="*">All</a></li>
+        <li><a href="#" data-filter=".Blues">Blues</a></li>
+        <li><a href="#" data-filter=".Jazz">Jazz</a></li>
+        <li><a href="#" data-filter=".Gospel">Gospel</a></li>
+        <li><a href="#" data-filter=".Soul">Soul/R&B</a></li>
+        <li><a href="#" data-filter=".Rock">Rock & Roll</a></li>
+    </ul>
+</div><!-- End .container -->
+<div class="mb50 mb30-xs"></div><!--space -->
+<div class="container" id="musicians">
+    @Html.Partial("listArtist")
+</div><!-- End container -->
+<div class="mb20 hidden-sm hidden-xs"></div><!-- space -->
+@section styles{
+    <style>.mb65{margin-bottom:65px!important}.mb60{margin-bottom:60px!important}.mb50{margin-bottom:50px!important}mb20{margin-bottom:20px!important}</style>
+}
+@section Scripts
+{
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script>$("#musicians").on("load",function(){$(".team-member").hover(function(){$(this).find(".member-meta").css({padding:"30px 20px 90px"})},function(){$(this).find(".member-meta").css({padding:"30px 20px 30px"})})}),$("#musicians").trigger("load");</script>
+}

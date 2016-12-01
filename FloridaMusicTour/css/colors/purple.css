@@ -1,0 +1,493 @@
+::selection {
+    background-color: #996794
+}
+
+::-moz-selection {
+    background-color: #996794
+}
+
+#category-widget a:hover,
+#footer .widget .tweet_time a:focus,
+#footer .widget .tweet_time a:hover,
+#footer a:focus,
+#footer a:hover,
+#footer.footer-default .widget .tweet_time a:focus,
+#footer.footer-default .widget .tweet_time a:hover,
+#footer.footer-default a:focus,
+#footer.footer-default a:hover,
+#portfolio-filter li.active>a,
+#portfolio-filter li:hover>a,
+#portfolio-filter.bordered li.active>a,
+#portfolio-filter.bordered li:hover>a,
+.about-timeline h3 a:focus,
+.about-timeline h3 a:hover,
+.about-widget-box header a:hover,
+.blockquote-icon:before,
+.breadcrumb>li>a:focus,
+.breadcrumb>li>a:hover,
+.btn.btn-border.btn-custom,
+.checkout .panel-border-tb .panel-title a:hover,
+.checkout .panel-border-tb .panel-title a:hover+.step-box,
+.checkout-progress-box a:hover,
+.dropcap.first-color,
+.entry-block .entry-meta a:focus,
+.entry-block .entry-meta a:hover,
+.entry-block .entry-title a:focus,
+.entry-block .entry-title a:hover,
+.entry-footer a:hover,
+.entry-title a:focus,
+.entry-title a:hover,
+.event-meta-box a:hover,
+.filter-brand-list a:hover,
+.first-color,
+.knowledge-box a:focus,
+.knowledge-box a:hover,
+.knowledge-box ul li a:focus,
+.knowledge-box ul li a:hover,
+.nav-border.custom-nav .owl-next,
+.nav-border.custom-nav .owl-prev,
+.nav-pills.nav-tabs-border>li.active>a,
+.nav-pills.nav-tabs-border>li.active>a:focus,
+.nav-pills.nav-tabs-border>li.active>a:hover,
+.navbar-default .btn-link:focus,
+.navbar-default .btn-link:hover,
+.navbar-default .cart-dropdown .cart-action-total,
+.navbar-default .cart-dropdown .product-name a:hover,
+.navbar-default .cart-dropdown .product-price,
+.navbar-default .dropdown-menu>li>a:focus,
+.navbar-default .dropdown-menu>li>a:hover,
+.navbar-default .navbar-link:hover,
+.navbar-default .navbar-nav .active>a,
+.navbar-default .navbar-nav .megamenu-title:hover,
+.navbar-default .navbar-nav .open>a,
+.navbar-default .navbar-nav .open>a:focus,
+.navbar-default .navbar-nav .open>a:hover,
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-top .open>.dropdown-toggle,
+.navbar-default .navbar-top a:focus,
+.navbar-default .navbar-top a:hover,
+.navbar-default li a:hover,
+.navbar-inverse .cart-dropdown .cart-action-total,
+.navbar-inverse .cart-dropdown .product-name a:hover,
+.navbar-inverse .cart-dropdown .product-price,
+.navbar-inverse.navbar-transparent .navbar-top .dropdown-menu a:focus,
+.navbar-inverse.navbar-transparent .navbar-top .dropdown-menu a:hover,
+.navbar-inverse.navbar-transparent .navbar-top .open>.dropdown-toggle,
+.navbar-inverse.navbar-transparent .navbar-top a:focus,
+.navbar-inverse.navbar-transparent .navbar-top a:hover,
+.navbar-white .btn-link:focus,
+.navbar-white .btn-link:hover,
+.navbar-white .cart-dropdown .cart-action-total,
+.navbar-white .cart-dropdown .product-name a:hover,
+.navbar-white .cart-dropdown .product-price,
+.navbar-white .dropdown-menu>li>a:focus,
+.navbar-white .dropdown-menu>li>a:hover,
+.navbar-white .navbar-link:hover,
+.navbar-white .navbar-nav .active>a,
+.navbar-white .navbar-nav .megamenu-title:hover,
+.navbar-white .navbar-nav .open>a,
+.navbar-white .navbar-nav .open>a:focus,
+.navbar-white .navbar-nav .open>a:hover,
+.navbar-white .navbar-nav>.active>a,
+.navbar-white .navbar-nav>.active>a:focus,
+.navbar-white .navbar-nav>.active>a:hover,
+.navbar-white .navbar-nav>li>a:focus,
+.navbar-white .navbar-nav>li>a:hover,
+.navbar-white .navbar-top .open>.dropdown-toggle,
+.navbar-white .navbar-top a:focus,
+.navbar-white .navbar-top a:hover,
+.navbar-white li a:hover,
+.navbar-white.navbar-transparent .navbar-top .dropdown-menu a:focus,
+.navbar-white.navbar-transparent .navbar-top .dropdown-menu a:hover,
+.page-header.gray .breadcrumb>li>a:focus,
+.page-header.gray .breadcrumb>li>a:hover,
+.portfolio-details-list li a:hover,
+.portfolio-title a:focus,
+.portfolio-title a:hover,
+.product-box.new-box.new-box-border,
+.product-details .product-cats a:focus,
+.product-details .product-cats a:hover,
+.product-title a:hover,
+.sidebar .widget .latest-posts-list li a:hover,
+.sidebar .widget .products-list li a:hover,
+.sidebar .widget .tweet_list a:hover,
+a {
+    color: #996794
+}
+
+#footer .tagcloud a:hover,
+#footer .widget h4:after,
+#footer.footer-custom,
+#footer.footer-default .tagcloud a:hover,
+#footer.footer-inverse .tagcloud a:hover,
+#portfolio-item-container.custombg .portfolio-item.push,
+#scroll-top.white:hover,
+#scroll-top:hover,
+.bg-custom,
+.bg-custom .divider>span,
+.bg-custom .title-border>span,
+.btn-custom,
+.btn-custom2.active,
+.btn-custom2.focus,
+.btn-custom2:active,
+.btn-custom2:focus,
+.btn-custom2:hover,
+.btn.btn-border.btn-custom:focus,
+.btn.btn-border.btn-custom:hover,
+.btn.btn-border.btn-white:focus,
+.btn.btn-border.btn-white:hover,
+.callout.custom,
+.callout:after,
+.carousel-control:focus,
+.carousel-control:hover,
+.carousel-tab .carousel-indicators li.active,
+.carousel-tab.gray .carousel-indicators li.active,
+.cart-dropdown .navbar-btn .badge,
+.category-widget-btn:hover,
+.custom-nav .owl-next,
+.custom-nav .owl-prev,
+.dropcap-bg.first-color,
+.entry-format,
+.filter-row .btn-layout.active,
+.filter-row .btn-layout.active:focus,
+.filter-row .btn-layout.active:hover,
+.filter-size-box.active,
+.filter-size-box.active:focus,
+.filter-size-box.active:hover,
+.highlight.first-color,
+.info-line-section.custom,
+.label-custom,
+.landing-features-section.section,
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover,
+.nav-border.custom-nav .owl-next:hover,
+.nav-border.custom-nav .owl-prev:hover,
+.nav-border.white-nav .owl-next:hover,
+.nav-border.white-nav .owl-prev:hover,
+.nav-pills.nav-tabs-border .lavalamp-object,
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover,
+.navbar-top.navbar-color,
+.noUi-connect,
+.noUi-handle,
+.open .category-widget-btn,
+.open>.dropdown-toggle.btn-custom2,
+.overlay-container .overlay.custom,
+.page-header.custom,
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover,
+.panel-custom>.panel-heading,
+.popover-title,
+.portfolio-meta.custom,
+.pricing-table .price.custom,
+.pricing-table.custom,
+.product-action-container .btn.btn-dark:focus,
+.product-action-container .btn.btn-dark:hover,
+.product-box.new-box,
+.progress-bar-custom,
+.progress-bar-custom .progress-tooltip,
+.rect-dots .owl-dot.active,
+.sbOptions a.sbFocus,
+.sbOptions a:focus,
+.sbOptions a:hover,
+.service-hover-bg:hover,
+.tagcloud a:hover,
+.team-member-box.custom,
+.timeline-date,
+.title-bg-line.custom:after,
+.title-border.title-bg.custom,
+.title-underblock.custom:after,
+.tooltip-inner,
+blockquote:after {
+    background-color: #996794
+}
+
+#portfolio-filter li.active>a,
+#portfolio-filter li:hover>a,
+#portfolio-filter.bordered li.active>a,
+#portfolio-filter.bordered li:hover>a,
+.btn-custom,
+.btn-custom2.active,
+.btn-custom2.focus,
+.btn-custom2:active,
+.btn-custom2:focus,
+.btn-custom2:hover,
+.btn.btn-border.btn-custom2:focus,
+.btn.btn-border.btn-custom2:hover,
+.btn.btn-border.btn-white:focus,
+.btn.btn-border.btn-white:hover,
+.callout.custom,
+.carousel-control:focus,
+.carousel-control:hover,
+.filter-row .btn-layout.active,
+.filter-row .btn-layout.active:focus,
+.filter-row .btn-layout.active:hover,
+.filter-size-box.active,
+.filter-size-box.active:focus,
+.filter-size-box.active:hover,
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover,
+.nav-border.custom-nav .owl-next,
+.nav-border.custom-nav .owl-next:hover,
+.nav-border.custom-nav .owl-prev,
+.nav-border.custom-nav .owl-prev:hover,
+.nav-border.white-nav .owl-next:hover,
+.nav-border.white-nav .owl-prev:hover,
+.open>.dropdown-toggle.btn-custom2,
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover,
+.popover,
+.product-action-container .btn.btn-dark:focus,
+.product-action-container .btn.btn-dark:hover,
+.product-box.new-box.new-box-border,
+.title-border.custom,
+.title-border.text-center.custom>span,
+.title-border.text-right.custom,
+.title-bottom-border.custom {
+    border-color: #996794
+}
+
+.form-control.dark.input-border-bottom:focus,
+.form-control.white.input-border-bottom:focus,
+.input-border-bottom.form-control:focus {
+    border-color: #996794!important
+}
+
+#header,
+.bg-custom .testimonial-vertical .testimonial-content:after,
+.bg-custom .testimonial-vertical.reverse .testimonial-content:after,
+.popover.top>.arrow,
+.progress-bar-custom .progress-tooltip:after,
+.progress-tooltip:after {
+    border-top-color: #996794
+}
+
+.bg-custom .testimonial.reverse .testimonial-content:after,
+.popover.left>.arrow,
+.tooltip.left .tooltip-arrow,
+blockquote {
+    border-left-color: #996794
+}
+
+.popover.right>.arrow,
+.tooltip.top .tooltip-arrow,
+blockquote.blockquote-reverse {
+    border-right-color: #996794
+}
+
+.bg-custom .testimonial-content:after,
+.popover-title,
+.popover.bottom>.arrow,
+.popover.bottom>.arrow:after,
+.tooltip.bottom .tooltip-arrow,
+.tooltip.right .tooltip-arrow {
+    border-bottom-color: #996794
+}
+
+@media (max-width:767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
+    .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus,
+    .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
+    .navbar-white .navbar-nav .open .dropdown-menu>.active>a,
+    .navbar-white .navbar-nav .open .dropdown-menu>.active>a:focus,
+    .navbar-white .navbar-nav .open .dropdown-menu>.active>a:hover,
+    .navbar-white .navbar-nav .open .dropdown-menu>li>a:focus,
+    .navbar-white .navbar-nav .open .dropdown-menu>li>a:hover {
+        color: #996794
+    }
+}
+
+@media (min-width:768px) {
+    .navbar-inverse.navbar-transparent .navbar-nav>li.active>a,
+    .navbar-inverse.navbar-transparent .navbar-nav>li.open>a,
+    .navbar-inverse.navbar-transparent .navbar-nav>li>a:focus,
+    .navbar-inverse.navbar-transparent .navbar-nav>li>a:hover,
+    .navbar-white.navbar-transparent .navbar-nav>li.active>a,
+    .navbar-white.navbar-transparent .navbar-nav>li.open>a,
+    .navbar-white.navbar-transparent .navbar-nav>li>a:focus,
+    .navbar-white.navbar-transparent .navbar-nav>li>a:hover {
+        color: #fb4585
+    }
+}
+
+.btn.btn-border.btn-custom2,
+.callout.custom .callout-icon,
+.dropcap.second-color,
+.pricing-table.border.custom,
+.pricing-table.border.custom .price,
+.pricing-table.border.custom h3,
+.second-color,
+a:active,
+a:focus,
+a:hover {
+    color: #5D4564
+}
+
+#footer.footer-custom .btn-custom,
+#footer.footer-custom .tagcloud a:hover,
+.bg-custom2,
+.btn-custom.active,
+.btn-custom.focus,
+.btn-custom2,
+.btn-custom:active,
+.btn-custom:focus,
+.btn-custom:hover,
+.btn.btn-border.btn-white.v2:focus,
+.btn.btn-border.btn-white.v2:hover,
+.callout.custom:after,
+.custom-nav .owl-next:hover,
+.custom-nav .owl-prev:hover,
+.dropcap-bg.second-color,
+.footer-custom #footer-bottom,
+.highlight.second-color,
+.open>.dropdown-toggle.btn-custom,
+.portfolio-meta.custom .portfolio-favourite,
+.pricing-table.border.custom h3:after,
+.pricing-table.custom.pricing-top .price,
+.pricing-table.flat.custom header,
+.progress-bar-custom2,
+.progress-bar-custom2 .progress-tooltip,
+.service-hover-bg.custom:hover .title-underblock.custom:after,
+.service-hover-bg.custom:hover .title-underblock.dark:after,
+.service-hover-bg.custom:hover .title-underblock.gray:after,
+.white-nav .owl-next:hover,
+.white-nav .owl-prev:hover {
+    background-color: #5D4564
+}
+
+#footer.footer-custom .btn-custom,
+.btn-custom.active,
+.btn-custom.focus,
+.btn-custom2,
+.btn-custom:active,
+.btn-custom:focus,
+.btn-custom:hover,
+.btn.btn-border.btn-custom2:focus,
+.btn.btn-border.btn-custom2:hover,
+.btn.btn-border.btn-custom:focus,
+.btn.btn-border.btn-custom:hover,
+.btn.btn-border.btn-white.v2:focus,
+.btn.btn-border.btn-white.v2:hover,
+.open>.dropdown-toggle.btn-custom,
+.panel-custom,
+.panel-custom>.panel-heading,
+.panel-custom>.panel-heading:hover,
+.pricing-table.border.custom,
+.pricing-table.flat.custom,
+.pricing-table.flat.custom .pricing-list,
+.service-hover-bg:hover {
+    border-color: #5D4564
+}
+
+#footer.footer-custom,
+.footer-custom #footer-bottom.no-bg,
+.panel-custom>.panel-heading+.panel-collapse>.panel-body,
+.pricing-table.custom .pricing-list,
+.progress-bar-custom2 .progress-tooltip:after {
+    border-top-color: #5D4564
+}
+
+.page-header.custom,
+.pricing-table.custom .pricing-list li {
+    border-bottom-color: #5D4564
+}
+
+@media (min-width:992px) {
+    .footer-custom .main-widget {
+        background-color: #5D4564
+    }
+}
+
+.btn.btn-border.btn-custom3,
+.dropcap.third-color,
+.product-box.discount-box.discount-box-border,
+.third-color {
+    color: #83B8BB
+}
+
+.bg-red,
+.btn-custom3,
+.btn.btn-border.btn-custom3:focus,
+.btn.btn-border.btn-custom3:hover,
+.dropcap-bg.third-color,
+.highlight.third-color,
+.portfolio-meta.custom2,
+.pricing-table .price.custom2,
+.pricing-table.custom2,
+.product-box.discount-box,
+.progress-bar-custom3,
+.progress-bar-custom3 .progress-tooltip,
+.service-hover-bg.custom2:hover,
+.team-member-box.custom2 {
+    background-color: #83B8BB
+}
+
+.btn-custom3,
+.btn.btn-border.btn-custom3:focus,
+.btn.btn-border.btn-custom3:hover,
+.product-box.discount-box.discount-box-border {
+    border-color: #83B8BB
+}
+
+.progress-bar-custom3 .progress-tooltip:after {
+    border-top-color: #83B8BB
+}
+
+.pricing-table.border.custom2,
+.pricing-table.border.custom2 .price,
+.pricing-table.border.custom2 h3 {
+    color: #74A3A6
+}
+
+.btn-custom3.active,
+.btn-custom3.focus,
+.btn-custom3:active,
+.btn-custom3:focus,
+.btn-custom3:hover,
+.open>.dropdown-toggle.btn-custom3,
+.pricing-table.border.custom2 h3:after,
+.pricing-table.custom2.pricing-top .price,
+.pricing-table.flat.custom2 header,
+.service-hover-bg.custom2:hover .title-underblock.custom:after,
+.service-hover-bg.custom2:hover .title-underblock.dark:after,
+.service-hover-bg.custom2:hover .title-underblock.gray:after {
+    background-color: #74A3A6
+}
+
+.btn-custom3.active,
+.btn-custom3.focus,
+.btn-custom3:active,
+.btn-custom3:focus,
+.btn-custom3:hover,
+.open>.dropdown-toggle.btn-custom3,
+.pricing-table.border.custom2,
+.pricing-table.flat.custom2,
+.pricing-table.flat.custom2 .pricing-list,
+.service-hover-bg.custom2:hover {
+    border-color: #74A3A6
+}
+
+.pricing-table.custom2 .pricing-list {
+    border-top-color: #74A3A6
+}
+
+.pricing-table.custom2 .pricing-list li {
+    border-bottom-color: #74A3A6
+}

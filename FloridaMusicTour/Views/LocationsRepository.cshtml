@@ -1,0 +1,215 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "Master.cshtml";
+
+}
+@Html.Partial("pageHeader")
+@{
+    if (CurrentPage.HasValue("featuredLocationLink"))
+    {
+        var node = Umbraco.Content(CurrentPage.featuredLocationLink);
+
+        <section class="Introduction">
+            <div class="container pt50">
+                <div class="row">
+                    <header class="title-block text-center">
+                        <h2 class="title-underblock custom text-center"><span>Featured Event</span></h2>
+                       
+                    </header>
+                </div>
+                <article class="event">
+                    <div class="row">
+
+
+                        <div class="col-md-6 col-md-push-6">
+                            <div class="entry-media">
+                                <figure>
+                                    <a href="@node.Url">
+                                     
+                                        <img src="@node.GetCropUrl("locationImage", "feature")" alt="event">
+                                    </a>
+                                </figure>
+                            </div><!-- End .entry-media -->
+                        </div><!-- End .col-md-6 -->
+                        <div class="col-md-6 col-md-pull-6">
+                            <h2 class="entry-title"><a href="@node.Url">@Umbraco.If(CurrentPage.HasValue("featuredLocationTitle"), CurrentPage.featuredLocationTitle, node.locationName)</a></h2>
+                            <p>@CurrentPage.featuredLocationDescription</p>
+                            <div class="event-meta">
+                                @if (node.HasValue("address"))
+                                {
+                                    <div class="event-place event-meta-box">
+                                        <span class="event-label"><i class="fa fa-map-marker fa-fw"></i>Address:</span>
+                                        @node.address
+                                    </div><!-- End address -->
+                                }
+                                @if (node.HasValue("eventDate"))
+                                {
+                                    <div class="event-date event-meta-box">
+                                        <span class="event-label"><i class="fa fa-calendar fa-fw"></i>Date:</span>
+                                        @node.eventDate
+                                    </div><!-- End .event-date -->
+                                }
+                                @if (node.HasValue("website"))
+                                {
+                                    <div class="event-tags event-meta-box">
+                                        <span class="event-label"><i class="fa fa-tag fa-fw"></i>Website:</span><a href="@node.website">@node.website</a>
+                                    </div><!-- End .event-tags -->
+                                }
+                                <a href="@node.Url" class="btn btn-custom btn-sm mt10">Full Details</a>
+                            </div><!-- end .event-meta -->
+
+                        </div><!-- End .col-md-6 -->
+
+                    </div><!-- End .row -->
+                </article><!-- End .event -->
+
+            </div><!-- End .container -->
+        </section>
+
+        <div class="container"><div class="divider pattern-square pt30 "> <span class="i fa fa-map-pin"></span></div></div>
+    }
+}
+
+
+<div class="pt50"></div>
+<section class="google-map mb100 mb30-xs">
+    <div class="container">
+        <div class="row no-margin">
+            <div class="col-md-12">
+                <h2 class="title-block title-underblock custom mb30">Where to go</h2>
+            </div>
+            <div id="map" class="larger vertical col-md-8 "></div><!-- End #map -->
+            <div class="col-md-4 max">
+                <h3 class="title-border custom title-bg-line  mb30 mt30-sm text-center"><span>Sort By</span></h3>
+                <ul id="portfolio-filter" class="text-center bordered">
+                    <li class="active"><a href="#" data-filter="*">All</a></li>
+                    <li><a href="#" data-filter=".Festival">Festivals</a></li>
+                    <li><a href="#" data-filter=".Venue">Venues</a></li>
+                    <li><a href="#" data-filter=".Historical">Historical</a></li>
+                </ul>
+                @Html.Partial("listLocations")
+            </div><!-- End .col-md-4 -->
+            <div class="mb60 visible-xs"></div>
+        </div>
+    </div>
+</section>
+
+@section styles {
+    <style>.mb30{margin-bottom:30px!important}.mb100{margin-bottom:100px!important}.mt10{margin-top:10px!important}.pt50{padding-top:50px!important}.mb60{margin-bottom:60px!important}@@media (max-width:767px){mt30-xs{margin-top:30px!important}}@@media (max-width:991px){.mb30-sm{margin-bottom:30px!important}}</style>
+}
+@section Scripts
+{
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <!-- Google map javascript api v3 -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHYqqXvSLkdzoHH75mbvZFiFGMb9IzBGg"></script>
+    <!--custom scrip to handle map and panels-->
+    <script src="~/js/markerclusterer.js"></script>
+    <script type="text/javascript">
+    (function () {
+        /* "use strict"; */
+
+        if (document.getElementById("map")) {
+
+            var locs = [
+            @foreach (var locs in CurrentPage.Children)
+            {
+                <text>["@locs.locationName" , "@locs.address" , @locs.GetPropertyValue("lat"), @locs.GetPropertyValue("long"), @locs.Id]@locs.IsNotLast(",") </text>
+            }
+        ];
+
+            var locations = [];
+            var markers = [];
+            var infowindow = new google.maps.InfoWindow();
+
+            //create map infos for all our locations
+            for (var i = 0; i < locs.length; i++) {
+                //html markup, name, lat, long
+                var tempArray = ['<div class="map-info-box"><ul class="contact-info-list"><li><span><i class="fa fa-map-marker fa-fw"></i></span> ' + locs[i][0] + '</li><li><span><i class="fa fa-home fa-fw"></i></span> ' + locs[i][1] + '</li></ul></div>', locs[i][2], locs[i][3], locs[i][4]];
+                locations.push(tempArray);
+            }
+
+            //create map
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 6,
+                center: new google.maps.LatLng(28.392155, -81.532215),
+                scrollwheel: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: [{ "featureType": "landscape", "stylers": [{ "saturation": -100 }, { "lightness": 65 }, { "visibility": "on" }] }, { "featureType": "poi", "stylers": [{ "saturation": -100 }, { "lightness": 51 }, { "visibility": "simplified" }] }, { "featureType": "road.highway", "stylers": [{ "saturation": -100 }, { "visibility": "simplified" }] }, { "featureType": "road.arterial", "stylers": [{ "saturation": -100 }, { "lightness": 30 }, { "visibility": "on" }] }, { "featureType": "road.local", "stylers": [{ "saturation": -100 }, { "lightness": 40 }, { "visibility": "on" }] }, { "featureType": "transit", "stylers": [{ "saturation": -100 }, { "visibility": "simplified" }] }, { "featureType": "administrative.province", "stylers": [{ "visibility": "off" }] }, { "featureType": "water", "elementType": "labels", "stylers": [{ "visibility": "on" }, { "lightness": -25 }, { "saturation": -100 }] }, { "featureType": "water", "elementType": "geometry", "stylers": [{ "hue": "#ffff00" }, { "lightness": -25 }, { "saturation": -97 }] }]
+            });
+
+            //loop through and initialize markers
+            for (var i = 0; i < locations.length; i++) {
+                //create marker
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map,
+                    animation: google.maps.Animation.DROP,
+                    icon: '/images/pin.png',
+                });
+
+                //add marker to array
+                markers.push(marker);
+
+                //open infowindow when non-clustered marker is clicked
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+
+
+                //func to change the map marker
+                function bindHover(i) {
+                    return function () {
+                        infowindow.setContent(locations[i][0]);
+
+                        //only show infowindow for markers not clustered
+                        if (mc.markers_[i].map != null) {
+                            infowindow.open(map, markers[i]);
+
+                        } else {
+                            showFromCluster(markers[i]);
+                        }
+                    };
+                }
+
+
+
+                //image box hovering
+                $('#' + locs[i][4]).mouseenter(bindHover(i));
+                $('#' + locs[i][4]).mouseleave(function () {
+                    infowindow.close();
+                });
+
+
+            }
+            var mc = new MarkerClusterer(map, markers);
+
+
+            //function to get infowindow to show on cluster icon
+            function showFromCluster(marker) {
+                for (var i = 0, cluster; i < mc.clusters_.length; i++) {
+                    cluster = mc.clusters_[i];
+                    for (var a = 0, clusterMarker; a < cluster.markers_.length; a++) {
+                        clusterMarker = cluster.markers_[a];
+                        if (clusterMarker == marker) {
+                            var tempMarker = new google.maps.Marker({
+                                position: cluster.center_,
+                                map: map,
+                                visible: false,
+                            });
+                            infowindow.open(map, tempMarker);
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+    }());
+
+    </script>
+}

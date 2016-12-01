@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "Master.cshtml";
+}
+@Html.Partial("pageHeader")
+<div class="mt60 @Umbraco.If(CurrentPage.HasValue("pageImage"),"hidden-xs")"></div>
+<div class="container text-page">
+    <div class="row">
+        <div class="col-md-9 col-md-offset-1">
+
+            <div class="entry single">
+
+                @if (CurrentPage.HasValue("pageImage"))
+                {
+                    <div class="entry-media">
+                        <figure>
+                            <img src="@CurrentPage.GetCropUrl("pageImage", "image")" alt="@Umbraco.Field("pageTitle")">
+                        </figure>
+                    </div> <!--End .entry-media-->
+                }
+
+
+
+                <span class="entry-format hidden-xs" id="entry-format-tp"><i class="fa fa-music"></i></span>
+                @if (CurrentPage.HasValue("pageTitle"))
+                {
+                    <h2 class="entry-title title-underblock custom">@Umbraco.Field("pageTitle")</h2>
+                }
+
+
+                <div class="entry-content">
+                    @CurrentPage.GetGridHtml("bodyText")
+                </div><!-- End .entry-content -->
+
+            </div>
+        </div><!-- End .col-md-12 -->
+    </div><!-- End .row -->
+</div><!-- End .container -->

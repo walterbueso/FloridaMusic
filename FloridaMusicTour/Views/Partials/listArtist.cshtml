@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{ var selection = CurrentPage.Children.Where("Visible").OrderBy("CreateDate desc"); }
+@* OrderBy() takes the property to sort by and optionally order desc/asc *@
+
+
+<div id="portfolio-item-container" class="max-col-4 no-border" data-layoutmode="fitRows">
+
+    @foreach (var item in selection)
+    {
+        <div class="col-md-3 col-xs-12 portfolio-item @item.mainGenre @item.subGenre">
+            <div class="team-member team-member-circle">
+                <a href="@item.Url">
+                    <figure>
+                        <img src="@item.GetCropUrl("artistImage", "Thumbnail")" alt="@item.artistName" class="img-responsive img-circle">
+                    </figure>
+
+                    <div class="member-meta text-center">
+                        <h3>@item.artistName</h3>
+                        <p class="member-desc">@item.mainGenre @Umbraco.If(item.HasValue("subGenre"), "- " + @item.subGenre, "")</p>
+                        <i class="fa fa-link"></i>
+                    </div><!-- End .member-meta -->
+                </a>
+            </div><!-- End .team-member -->
+        </div><!-- End .porfolio-item -->
+    }
+
+
+</div><!-- End #portfolio-page-container -->

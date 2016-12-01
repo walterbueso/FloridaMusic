@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+
+}
+@Html.Partial("Sliders")
+<section id="id-to-scroll">
+    @CurrentPage.GetGridHtml("bodyText")
+</section>
+<div class="bg-lightgray pt65 pb10">
+    <div class="container">
+        <header class="title-block text-center mb60">
+            <h2 class="title-underblock custom text-uppercase text-center mb20"><span>@Umbraco.Field("header")</span></h2>
+            <p>@Umbraco.Field("subheader")</p>
+        </header>
+
+        <div id="portfolio-item-container" class="max-col-3 pb50" data-layoutmode="fitRows">
+            @Html.Partial("featureBoxes")
+
+        </div><!-- End #portfolio-item-container -->
+
+    </div><!-- End .container -->
+</div><!-- End .bg-lightgray -->
+@section styles {
+    <link rel="stylesheet" href="~/css/revslider/revslider-index.css">
+    <style>.pt65{padding-top:65px!important}.pb10{padding-bottom:10px!important}.mb60{margin-bottom:60px!important}.pb50{padding-bottom:50px!important}.mb20{margin-bottom:20px!important}</style>
+}
+@section Scripts
+{
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script src="~/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/js/jquery.themepunch.revolution.min.js"></script>
+    <script>
+!function () { "use strict"; jQuery("#revslider").revolution({ delay: 8e3, startwidth: 1170, startheight: 500, fullWidth: "on", fullScreen: "on", hideTimerBar: "off", spinner: "spinner4", navigationStyle: "preview4", soloArrowLeftHOffset: 20, keyboardNavigation: "on", soloArrowRightHOffset: 20 }) }();
+    </script>
+    <script>
+var backgrounds = $(".bg-custom, .bg-dark, .bg-gray"); $("body").hasClass("no-js") && $("body").removeAttr("class"), 3 === $(backgrounds).find(".column").length && $(backgrounds).find(".col-md-4.column:nth-child(2)").addClass("bg-custom2");
+    </script>
+}

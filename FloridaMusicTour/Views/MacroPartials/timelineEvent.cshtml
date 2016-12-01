@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{ 
+    var push = Model.MacroParameters["push"];
+    var title = Model.MacroParameters["title"];
+    var description = Model.MacroParameters["description"];
+    var date = Model.MacroParameters["date"];
+}
+<div class="row">
+    <div class="col-md-6 @if (push.Equals("1")) {<text>col-md-push-6</text> } ">
+        <div class="about-timeline-section">
+
+            <h3>@title</h3>
+            <p>@date</p>
+            <p>@description</p>
+        </div><!-- End .about-timeline-section -->
+    </div><!-- end .col-md-6 -->
+</div><!-- End .row -->

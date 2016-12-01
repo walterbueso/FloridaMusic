@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+<div class="error-page text-center">
+    <div class="container">
+        <h2 class="error-title"><i class="fa fa-search "></i></h2>
+
+        <h3 class="error-subtitle">Florida Music Tour Search</h3>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                @Umbraco.RenderMacro("ezSearch")
+            </div>
+        </div>
+        
+
+        <form action="/search" method="GET" role="search">
+            <div class="form-group">
+                <input class="form-control input-lg input-border-bottom text-center" type="text" name="q" placeholder="Search in here...">
+            </div><!-- end .form-group -->
+            <div class="form-group">
+                <input type="submit" class="btn btn-dark no-radius min-width" value="Search Now">
+            </div><!-- end .form-group -->
+        </form>
+    </div><!-- End .container -->
+</div><!-- End .error-page -->
+<div class="mb60 hidden-sm hidden-xs"></div><!-- space -->

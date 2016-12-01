@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloridaMusicTour", "FloridaMusicTour\FloridaMusicTour.csproj", "{FB58F0A0-2B47-4B91-8F43-C59D6A8A5CC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{53DAFADF-1EB8-41DF-9C18-5FD3B87CD487}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9CEDAEFF-2660-4499-85DE-A15A9B20A162}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{DDE1B0C4-5CF4-4897-B95C-A427C3F136AE}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\FloridaMusicTour.json = PublishScripts\Templates\FloridaMusicTour.json
+		PublishScripts\Templates\FloridaMusicTour.param.dev.json = PublishScripts\Templates\FloridaMusicTour.param.dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB58F0A0-2B47-4B91-8F43-C59D6A8A5CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB58F0A0-2B47-4B91-8F43-C59D6A8A5CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB58F0A0-2B47-4B91-8F43-C59D6A8A5CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB58F0A0-2B47-4B91-8F43-C59D6A8A5CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9CEDAEFF-2660-4499-85DE-A15A9B20A162} = {53DAFADF-1EB8-41DF-9C18-5FD3B87CD487}
+		{DDE1B0C4-5CF4-4897-B95C-A427C3F136AE} = {53DAFADF-1EB8-41DF-9C18-5FD3B87CD487}
+	EndGlobalSection
+EndGlobal

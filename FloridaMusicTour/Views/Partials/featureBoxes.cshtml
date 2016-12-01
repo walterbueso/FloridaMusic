@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{ var boxes = CurrentPage.FirstChild("homepageFeatureBox").Children("featureBox").Where("Visible");}
+
+@foreach (var box in boxes)
+            {
+    <div class="portfolio-item portfolio-image-zoom push">
+        <figure>
+            <a href="@Umbraco.Content(box.link).Url" title="@box.GetPropertyValue("title")"><img src="@box.GetCropUrl("thumbnail","feature")" alt="@box.GetPropertyValue("title")" class="img-responsive"></a>
+        </figure>
+        <div class="portfolio-meta custom">
+            <h2 class="portfolio-title"><a href="@Umbraco.Content(box.link).Url">@box.GetPropertyValue("title")</a></h2>
+            <div class="portfolio-tags"><a href="@Umbraco.Content(box.link).Url">@box.GetPropertyValue("subtitle")</a></div>
+            <a class="portfolio-favourite" href="@Umbraco.Content(box.link).Url" title="Click here">
+                <i class="fa fa-link"></i>
+            </a>
+        </div><!-- End .portfolio-meta -->
+    </div><!-- End .portfolio-item -->
+}

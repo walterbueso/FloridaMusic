@@ -1,0 +1,425 @@
+.navbar-top {
+background-color: #000;
+}
+.dos-logo {
+background-color: #fff;
+/*width:211px;
+height:22px;*/
+}
+.brand {
+height: 50px;
+padding: 11px 0 15px 0;
+line-height: 20px;
+}
+.division {
+	line-height:50px;
+}
+.navbar-default .navbar-top a {
+	color:#fff;
+}
+.navbar-text {
+margin: 10px 0;
+}
+.navbar-link {
+font-size: 15px;
+margin: 16px;
+color:#fff!important;
+}
+.music-logo {
+max-height:100px;
+}
+.navbar-brand {
+padding: 10px 40px 0 0;
+height: 120px;
+}
+.navbar-nav > li > a {
+padding: 50px 15px;
+}
+.navbar-btn {
+margin-top:42px;
+margin-bottom:42px;
+}
+.two {
+display: none;
+}
+.sticky-menu.fixed .navbar-brand.one {
+display: none;
+}
+.sticky-menu.fixed .navbar-brand.two {
+display: block;
+}
+
+.portfolio-item {
+	border: 3px solid #f2f2f2;
+}
+.no-border .portfolio-item {
+	border:none;
+}
+.pad {
+	padding: 30px 20px 120px;
+}
+.team-member .member-meta {
+	position: absolute;
+	bottom: 0;
+	left:0;
+	right: 0;
+	background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+	
+}
+.member-meta .fa-link {
+	color: #fff;
+}
+#content p {
+	font-size:1.143em;
+}
+.entry-content {
+	color: #000;
+}
+/*.entry-title {
+	font-size:42px
+}*/
+.carousel-tab .carousel-indicators li {
+	background-color: #996794;
+	padding: 50px 20px;
+	/* border-left: 0.5px solid;
+	border-right: 0.5px solid;
+	border-color:#5D4564; */
+}
+.carousel-tab .carousel-indicators li.active  {
+	background-color:#5D4564;
+}
+/**************
+Maybe
+**************/
+/* .carousel-inner {
+	max-width: 1200px;
+	margin: 0 auto;
+} */
+.item-container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.carousel-indicators {
+	margin: 0 !important; 
+}
+#map {
+	height: 400px;
+}
+/*#content {
+	padding: 0;
+}*/
+.carousel-tab {
+	margin-bottom: 0;
+	padding-bottom: 60px
+}
+.navbar-toggle {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.about-timeline-section:after {
+	border-color:transparent #d7d7d7 transparent transparent ;
+}
+.about-timeline:after, 
+.timeline-section-date {
+	background-color: #d7d7d7;
+}
+.col-md-push-6 > .about-timeline-section:after {
+	border-color: transparent transparent transparent #d7d7d7;
+}
+.about-timeline-section {
+	padding: 15px 20px;
+}
+.tab:not(:first-child):after, .tab:not(:first-child):before  {
+content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 85px solid transparent;
+    border-left-width: 24px;
+    border-left-style: solid;
+    border-left: 40px solid #996794;
+    border-bottom: 85px solid transparent;
+
+}
+.active+.tab:after {
+	border-left-color: #5D4564;
+}
+
+#header-search-form.navbar-white {
+	border-bottom: 1px solid #9f9f9f;
+}
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus,
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus {
+	border-color: #ddd;
+	background-color: #fff;
+	border-top-color:#996794;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus  {
+	background-color:#996794;
+	color: #fff;
+}
+
+.nav-tabs.nav-justified>li>a /*bootstrap had this inside of media queries. make sure this works on mobile too */ {
+	border-bottom: 1px solid #9f9f9f;
+}
+.sidebar .widget .links li:hover a {
+	color: #996794;
+}
+@media (max-width: 767px){
+
+	.nav-tabs > li > a,
+	.nav-pills > li > a  {
+		max-width:none;
+		
+	}
+	.navbar-btn {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+}
+.pagination li a {
+	background-color: #996794;
+	color: #fff;
+}
+.breadcrumb > .active {
+	color: #996794;
+}
+@media (min-width: 768px) and (max-width: 800px) {
+	.navbar-inner.sticky-menu > .container {
+		padding: 0;
+	}
+}
+.portfolio-favourite {
+	height:49px;
+	width:49px;
+}
+.portfolio-favourite i {
+	margin-top: 16px;
+}
+
+/*
+Mobile 
+*/
+@media (max-width: 767px) {
+	.entry {
+	padding: 0;
+}
+.entry:after {
+	content: none;
+}
+.navbar-brand {
+	padding: 10px 40px 0 10px;
+}
+.mejs-mediaelement {
+	max-width: 320px !important;
+}
+}
+@media (max-width: 600px) {
+	.page-header {
+		text-align:center;
+	}
+}
+.nav-tabs.nav-justified>.active>a {
+	border-bottom-color: #996794;
+}
+/* #profile-js {
+	display:none;
+} */
+.display {
+	display: block;
+}
+.none {
+	display:none;
+}
+.max {
+	height: 600px;
+	/* border: 1px solid #eaeaea; */
+	/* padding: 0; */
+	/* margin-left: 15px; */
+}
+.over {
+	overflow-y: scroll;
+	height: 485px;
+}
+.contact-text {
+	margin-top: 0;
+}
+.col-xs-12 > .team-member-container {
+	padding: 0;
+}
+.over > #portfolio-item-container {
+	margin-bottom: 0;
+}
+.over .team-member,
+.over .team-member > figure {
+	margin-bottom: 0;
+	padding: 0;
+	/* max-height:160px; */
+}
+/* .over > .team-member {
+	max-height: 120px;
+} */
+.over .team-member > .member-meta {
+	top: 0;
+	/*padding: 20px;*/
+	background:linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%);
+	/*bottom: initial;*/
+}
+.over  .team-member-container > .team-member > figure > figcaption {
+	padding: 0;
+}
+
+.over > #portfolio-item-container .team-member-container .team-member figure,
+.over > #portfolio-item-container .team-member-container .team-member figure img {
+	max-height: 170px;
+    margin-bottom:0;
+}
+.link-white {
+	color: #fff;
+}
+.link-white:hover {
+	color:#996794;
+}
+#map.map3 {
+	margin-bottom:0 !important;
+	height: 500px;
+}
+#loc-details {
+	width: 100%;
+}
+.bg-custom {
+    color: #fff;
+}
+.bg-custom h2 {
+    color: #fff;
+    font-size: 20px;
+}
+
+.umb-grid > .grid-section > .bg-custom > .container > .row .column > div,
+.umb-grid > .grid-section > .bg-dark > .container > .row .column > div {
+    padding: 45px 15px 40px;
+    color: #fff;
+}
+.umb-grid > .grid-section > .bg-gray > .container > .row .column > div {
+     padding: 45px 15px 40px;
+    color: #000;
+}
+.bg-custom h1,
+.bg-custom h2,
+.bg-custom h3,
+.bg-custom h4,
+.bg-custom h5 {
+    color: white;
+}
+.entry-date > span {
+    font-size:12px;
+}
+@media (min-width: 992px) {
+    .entry-date > span {
+        font-size: 12px;
+    }
+    .error-title {
+        font-size: 252px;
+        margin-bottom:72px;
+    }
+    .error-subtitle {
+        font-size:55px;
+        margin-bottom: 54px;
+    }
+}
+@media (min-width: 768px) {
+    .entry-date > span {
+        font-size: 12px;
+    }
+    .title-border.title-bg-line, .title-border.text-center.title-bg-line, .title-border.title-bg, .title-border.text-center.title-bg {
+        margin-top: -10px;
+    }
+}
+#to-do .member-meta {
+    top: 0;
+    bottom: 0;
+  background: rgba(0,0,0,0.5); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(to bottom, rgba(0,0,0,0.8) 20%,rgba(0,0,0,0.4) 80%); /*Safari 5.1-6*/
+  background: -o-linear-gradient(to bottom, rgba(0,0,0,0.8) 20%,rgba(0,0,0,0.4) 80%); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(to bottom, rgba(0,0,0,0.8) 20%,rgba(0,0,0,0.4) 80%); /*Fx 3.6-15*/
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8) 20%,rgba(0,0,0,0.4) 80%); /*Standard*/
+}
+@media (max-width:767px) {
+    #map.map3 {
+        height: 400px;
+        margin-right:15px;
+        margin-left:15px;
+        margin-bottom: 60px !important;
+    }
+    #to-do .member-meta {
+        padding: 10px;
+    }
+    
+}
+#entry-format-tp {
+    top: 0!important;
+}
+.text-page .grid-section * > .container,
+.text-page .grid-section * > .row {
+    width: 100%;
+    padding:0;
+    margin:0;
+}
+.text-page .grid-section * > .col-md-12 {
+    padding:0;
+}
+/*iframe {
+    width: 100%!important;
+}*/
+/*.grid-section > div {
+    margin-bottom: 30px; not sure why this is here
+}*/
+.event-label {
+    text-decoration: none;
+}
+.mfp-title .image-source-link {
+    display:none!important;
+}
+
+/****************************
+   In case users disable js
+******************************/
+.no-js #revslider-container > #revslider > ul > li:first-child {
+    visibility: visible;
+}
+.no-js #revslider-container > #revslider > ul > li > img {
+    margin-top: 51px;
+    width:1500px;
+}
+.no-js #revslider-container > #revslider > ul > li > .rev-title {
+    top:300px;
+    left:20%;
+    /*display:none;*/
+}
+.no-js #revslider-container > #revslider > ul > li > .rev-text {
+    top:385px;
+    left:30%;
+    /*display:none;*/
+}
+.no-js #revslider-container > #revslider > ul > li > .rev-btn {
+    position:absolute;
+    top: 450px;
+    left:45%;
+    /*display:none;*/
+}
+.no-js .tab-pane {
+    display:block;
+}
+.no-js #accordion4 .collapse {
+    display:block;
+}
+.mt60 {
+    margin-top:60px!important;
+}
+.no-js #portfolio-filter {
+    display:none;
+}

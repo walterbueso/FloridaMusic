@@ -1,0 +1,149 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>@Model.Content.Name - Florida Music Tour</title>
+    <meta name="description" content="Welcome to the Florida Music Tour website. Learn about Florida's significant role in the history of Blues and other Genres.">
+
+    <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600italic,700italic,600,800,300,700,800italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+    <!-- Google Fonts -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    @*<link rel="stylesheet" href="~/css/bootstrap.min.css">*@
+    <link rel="stylesheet" href="~/css/style.css">
+    @RenderSection("styles", false)
+    <link rel="stylesheet" href="~/css/custom.css" />
+
+
+    <!-- Favicon and Apple Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="~/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="~/img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!--- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Queryloader -->
+    <script src="~/js/queryloader2.min.js" @Umbraco.If(CurrentPage.DocumentTypeAlias != "home", "async")></script>
+
+
+</head>
+<body class="no-js">
+
+    <div id="wrapper">
+        <header id="header" role="banner">
+            <div class="collapse navbar-white special-for-mobile" id="header-search-form">
+                <div class="container">
+                    <form class="navbar-form animated fadeInDown" action="/search" role="search" method="GET">
+                        <input type="text" id="s" name="q" class="form-control" placeholder="Search in here...">
+                        <button type="submit" class="btn-circle" title="Search" value="Search"><i class="fa fa-search"></i></button>
+                    </form>
+                </div><!-- End .container -->
+            </div><!-- End #header-search-form -->
+            <nav class="navbar @Umbraco.If(Model.Content.DocumentTypeAlias == "home", "navbar-white navbar-transparent", "navbar-default")  animated-dropdown ttb-dropdown" role="navigation">
+
+                <div class="navbar-top clearfix">
+                    <div class="container">
+                        <div class="pull-left brand">
+                            <a class="" href="http://dos.myflorida.com/">
+                                <img alt="Florida Department of State" src="~/images/blues/dos-logo.png" class="img-responsive dos-logo">
+                            </a>
+                        </div><!-- End .pull-left -->
+
+                        <div class="pull-right hidden-xs division">
+                            <a href="#" class="navbar-link">Division of Cultural Affairs</a>
+                        </div><!-- End .pull-right -->
+                    </div><!-- End .container -->
+                </div><!-- End .navbar-top -->
+
+                <div class="navbar-inner sticky-menu">
+                    <div class="container">
+                        <div class="navbar-header">
+
+                            <button type="button" class="navbar-toggle btn-circle pull-right collapsed" data-toggle="collapse" data-target="#main-navbar-container">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <a class="navbar-brand one" href="/">
+                                <img src="~/img/music-logo.png" class="music-logo" />
+                            </a>
+                            <a class="navbar-brand two" href="/">
+                                <img src="~/img/nav-logo21.png" />
+                            </a>
+                            <button type="button" class="navbar-btn btn-icon btn-circle pull-right last visible-sm visible-xs" data-toggle="collapse" data-target="#header-search-form"><i class="fa fa-search"></i></button>
+                        </div><!-- End .navbar-header -->
+
+                        <div class="collapse navbar-collapse" id="main-navbar-container">
+                            <ul class="nav navbar-nav">
+                                <li class="@Umbraco.If(Model.Content.DocumentTypeAlias == "home", "active", "")">
+                                    <a href="/" role="button">Home</a>
+                                </li>
+                                @{ var selection = CurrentPage.Site().Children.Where("Visible");}
+                                @foreach (var item in selection)
+                                {
+                                    <li class="@(item.IsAncestorOrSelf(CurrentPage) ? "active" : null)"><a href="@item.Url">@item.Name</a></li>
+                                }
+                            </ul>
+                            <button type="button" class="navbar-btn btn-icon btn-circle navbar-right last  hidden-sm hidden-xs" data-toggle="collapse" data-target="#header-search-form"><i class="fa fa-search"></i></button>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container -->
+                </div><!-- End .navbar-inner -->
+            </nav>
+        </header><!-- End #header -->
+
+        <div id="content" role="main" class="no-padding">
+            @RenderBody()
+        </div><!-- End #content -->
+
+        @Html.Partial("Footer")
+
+    </div><!-- End #wrapper -->
+    <a href="#top" id="scroll-top" title="Back to Top"><i class="fa fa-angle-up"></i></a>
+    <!-- END -->
+    <!-- Modernizr -->
+    <script src="~/js/modernizr.js"></script>
+
+    <!-- Smoothscroll -->
+    <script src="~/js/smoothscroll.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    @*<script src="~/js/bootstrap.min.js"></script>*@
+    <script src="~/js/jquery.hoverIntent.min.js"></script>
+    <script src="~/js/jquery.nicescroll.min.js"></script>
+    <script src="~/js/waypoints.min.js"></script>
+    <script src="~/js/waypoints-sticky.min.js"></script>
+    <script src="~/js/jquery.debouncedresize.js"></script>
+    @RenderSection("Scripts", false)
+    <script src="~/js/main.js"></script>
+</body>
+</html>

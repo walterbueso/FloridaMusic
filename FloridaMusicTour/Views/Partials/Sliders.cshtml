@@ -1,0 +1,65 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{ var slides = CurrentPage.FirstChild("homepageSlidesRepository").Children("homepageSlide").Where("Visible");}
+<div id="revslider-container">
+    <div id="revslider">
+        <!--todo show header w/o js-->
+        <ul>
+            @foreach (var slide in slides)
+            {
+                <li data-transition="fade" data-slotamount="8" data-masterspeed="600" data-title="@slide.header" data-thumb="@slide.GetCropUrl("image","banner")">
+
+                    <!-- background image -->
+                    <img src="@slide.GetCropUrl("image","banner")" alt="@slide.header" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                    <div class="tp-caption rev-title lfb ltt"
+                         data-x="center"
+                         data-y="210"
+                         data-speed="1000"
+                         data-start="1000"
+                         data-easing="Power3.easeInOut"
+                         data-endspeed="600"
+                         style="z-index: 6">@slide.header</div>
+
+                    <div class="tp-caption rev-text lfb ltt"
+                         data-x="center"
+                         data-y="290"
+                         data-speed="1000"
+                         data-start="1200"
+                         data-easing="Power3.easeInOut"
+                         data-endspeed="700"
+                         style="z-index: 12">@slide.subHeader</div>
+                            @if (slide.HasValue("link"))
+                            {
+                                var node = Umbraco.Content(slide.link);
+
+                                <div class="tp-caption rev-btn lfb ltt"
+                                     data-x="center"
+                                     data-y="360"
+                                     data-speed="1000"
+                                     data-start="1400"
+                                     data-easing="Power3.easeInOut"
+                                     data-endspeed="800"
+                                     style="z-index: 14">
+                                    <a href="@node.Url" class="btn btn-white btn-border radius-lger min-width"><strong>Learn More</strong></a>
+                                </div>
+
+                                @*<div class="tp-caption rev-btn customin customout"
+                                     data-x="center"
+                                     data-y="360"
+                                     data-speed="1200"
+                                     data-customin="x:0;y:0;z:0;rotationX:-90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                                     data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                     data-start="1600"
+                                     data-easing="Power3.easeInOut"
+                                     data-endspeed="700"
+                                     style="z-index: 12">
+                                    <a href="@node.Url" class="btn btn-white btn-border radius-lger min-width"><strong>Learn More</strong></a>
+                                </div>*@
+                            }
+                        </li>
+            }
+
+        </ul>
+    </div><!-- End #revslider -->
+    <a href="#id-to-scroll" class="scroll-btn light" data-offset="-55" data-0="opacity:1" data-top-bottom="opacity:0;" title="Go Down"><span></span></a>
+</div><!-- End #revslider-container -->
